@@ -33,6 +33,7 @@ class LlamaCppModel:
         params = llamacpp.InferenceParams()
         params.path_model = str(path)
         params.n_threads = shared.args.threads or multiprocessing.cpu_count() // 2
+        params.n_ctx = 2048
 
         _model = llamacpp.LlamaInference(params)
 
